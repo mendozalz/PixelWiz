@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PixelWiz.Models
 {
-    public class Profiles
+    public class Profile
     {
-        public string ProfileImg {  get; set; }
+        public string ProfileImg { get; set; }
         public string ProfileName { get; set; }
-        public int NoPhotos {  get; set; }
+        public int NoPhotos { get; set; }
     }
 }

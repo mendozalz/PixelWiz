@@ -4,8 +4,8 @@
              x:Class="PixelWiz.Views.DashBoardView"
              Title="DashBoardView"
              BackgroundColor="{DynamicResource BackGround}">
-    <Grid Margin="25,25,0,0" BackgroundColor="Beige" RowDefinitions=".1*,.2*,.15*,.45*,.1*">
-        <Grid BackgroundColor="Green" Margin="0,0,25,0" ColumnDefinitions="*,*">
+    <Grid Margin="25,25,0,0"  RowDefinitions=".1*,.2*,.15*,.45*,.1*">
+        <Grid  Margin="0,0,25,0" ColumnDefinitions="*,*">
             <VerticalStackLayout VerticalOptions="Center">
                 <Rectangle Fill="{DynamicResource IconMenu}"
                            HeightRequest="2"
@@ -17,7 +17,7 @@
                            HorizontalOptions="Start"
                            WidthRequest="35"/>
             </VerticalStackLayout>
-            <Border Grid.Column="1" Background="Beige"
+            <Border Grid.Column="1" 
                     HeightRequest="65"
                     WidthRequest="65"
                     HorizontalOptions="End"
@@ -29,7 +29,7 @@
                        />
             </Border>
         </Grid>
-        <VerticalStackLayout Background="Black" Grid.Row="1">
+        <VerticalStackLayout  Grid.Row="1">
             <Label FontSize="25"
                    FontFamily="NexaHeavy"
                    Text="Crea imagenes impresionantes"
@@ -40,5 +40,28 @@
                    Text="Invita a tus amigos"
                    TextColor="{DynamicResource Subtitle}"/>
         </VerticalStackLayout>
+        <CollectionView Background="Orange"
+                Grid.Row="2"
+                ItemsSource="{Binding Profiles}"
+                VerticalOptions="Center">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="Green"
+                          ColumnDefinitions=".35*,.65*"
+                          HeightRequest="60"
+                          WidthRequest="160">
+                        <RoundRectangle Grid.ColumnSpan="2"
+                                        CornerRadius="45"
+                                        Fill="#1F252A"/>
+                        <Border >
+                            
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </Grid>
 </ContentPage>

@@ -5,51 +5,52 @@ namespace PixelWiz.Views;
 
 public partial class DashBoardView : ContentPage
 {
-	public ObservableCollection<Profiles> Profiles { get; set; }
-	public ObservableCollection<GeneratedImages> GeneratedImages { get; set; }
+	public ObservableCollection<Profile> Profiles { get; set; }
+	public ObservableCollection<GeneratedImage> GeneratedImages { get; set; }
     public DashBoardView()
 	{
 		InitializeComponent();
 		LoadData();
+        BindingContext = this;
 	}
 
     private void LoadData()
     {
-        Profiles = new ObservableCollection<Profiles> {
-    new Profiles
+        Profiles = new ObservableCollection<Profile> {
+    new Profile
     {
         ProfileName = "Lenin",
         ProfileImg =  "dot_net.svg",
         NoPhotos = 12
     },
-    new Profiles
+    new Profile
     {
         ProfileName = "Che",
-        ProfileImg = "maria_profile.jpg",
+        ProfileImg = "dot_net.svg",
         NoPhotos = 25
     },
-    new Profiles
+    new Profile
     {
         ProfileName = "Mia",
-        ProfileImg = "carlos_avatar.png",
+        ProfileImg = "dot_net.svg",
         NoPhotos = 8
     },
-    new Profiles
+    new Profile
     {
         ProfileName = "Ayleen",
-        ProfileImg = "sofia_pic.jpg",
+        ProfileImg = "dot_net.svg",
         NoPhotos = 18
     },
-    new Profiles
+    new Profile
     {
         ProfileName = "Edward",
-        ProfileImg = "diego_selfie.png",
+        ProfileImg = "dot_net.svg",
         NoPhotos = 30
     }
 };
 
-        GeneratedImages = new ObservableCollection<GeneratedImages> {
-    new GeneratedImages
+        GeneratedImages = new ObservableCollection<GeneratedImage> {
+    new GeneratedImage
     {
         ImagePath = "dot_net.svg",
         MainKeyword =  "Robot",
@@ -57,7 +58,7 @@ public partial class DashBoardView : ContentPage
             "AI, robotic, human, metal"
         }
     },
-    new GeneratedImages
+    new GeneratedImage
     {
         ImagePath = "nature_scene.jpg",
         MainKeyword = "Landscape",
@@ -65,7 +66,7 @@ public partial class DashBoardView : ContentPage
             "mountains, forest, river, sunset"
         }
     },
-    new GeneratedImages
+    new GeneratedImage
     {
         ImagePath = "space_exploration.png",
         MainKeyword = "Cosmos",
@@ -73,7 +74,7 @@ public partial class DashBoardView : ContentPage
             "planets, stars, galaxy, astronaut"
         }
     },
-    new GeneratedImages
+    new GeneratedImage
     {
         ImagePath = "futuristic_city.jpg",
         MainKeyword = "Metropolis",
@@ -81,7 +82,7 @@ public partial class DashBoardView : ContentPage
             "skyscrapers, flying cars, neon, hologram"
         }
     },
-    new GeneratedImages
+    new GeneratedImage
     {
         ImagePath = "underwater_world.png",
         MainKeyword = "Ocean",

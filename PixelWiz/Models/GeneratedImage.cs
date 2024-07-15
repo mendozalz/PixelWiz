@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PixelWiz.Models
 {
-    public class GeneratedImages
+    public class GeneratedImage
     {
         public string ImagePath { get; set; }
         public string MainKeyword { get; set; }
-        public List<string> Keyword {  get; set; }
+        public List<string> Keyword { get; set; }
     }
 }
