@@ -20,31 +20,31 @@ public partial class DashBoardView : ContentPage
     new Profile
     {
         ProfileName = "Lenin",
-        ProfileImg =  "dot_net.svg",
+        ProfileImg =  "avatar_1.jpg",
         NoPhotos = 12
     },
     new Profile
     {
-        ProfileName = "Che",
-        ProfileImg = "dot_net.svg",
+        ProfileName = "Edward",
+        ProfileImg = "avatar_2.jpg",
         NoPhotos = 25
     },
     new Profile
     {
-        ProfileName = "Mia",
-        ProfileImg = "dot_net.svg",
+        ProfileName = "Camil",
+        ProfileImg = "avatar_3.jpg",
         NoPhotos = 8
     },
     new Profile
     {
-        ProfileName = "Ayleen",
-        ProfileImg = "dot_net.svg",
+        ProfileName = "Che",
+        ProfileImg = "avatar_4.jpg",
         NoPhotos = 18
     },
     new Profile
     {
-        ProfileName = "Edward",
-        ProfileImg = "dot_net.svg",
+        ProfileName = "Mia",
+        ProfileImg = "avatar_5.jpg",
         NoPhotos = 30
     }
 };
@@ -52,7 +52,7 @@ public partial class DashBoardView : ContentPage
         GeneratedImages = new ObservableCollection<GeneratedImage> {
     new GeneratedImage
     {
-        ImagePath = "dot_net.svg",
+        ImagePath = "img_5.jpeg",
         MainKeyword =  "Robot",
         Keyword = new List<string> {
             "AI, robotic, human, metal"
@@ -60,7 +60,7 @@ public partial class DashBoardView : ContentPage
     },
     new GeneratedImage
     {
-        ImagePath = "nature_scene.jpg",
+        ImagePath = "img_1.jpeg",
         MainKeyword = "Landscape",
         Keyword = new List<string> {
             "mountains, forest, river, sunset"
@@ -68,7 +68,7 @@ public partial class DashBoardView : ContentPage
     },
     new GeneratedImage
     {
-        ImagePath = "space_exploration.png",
+        ImagePath = "img_2.jpeg",
         MainKeyword = "Cosmos",
         Keyword = new List<string> {
             "planets, stars, galaxy, astronaut"
@@ -76,7 +76,7 @@ public partial class DashBoardView : ContentPage
     },
     new GeneratedImage
     {
-        ImagePath = "futuristic_city.jpg",
+        ImagePath = "img_3.jpeg",
         MainKeyword = "Metropolis",
         Keyword = new List<string> {
             "skyscrapers, flying cars, neon, hologram"
@@ -84,7 +84,7 @@ public partial class DashBoardView : ContentPage
     },
     new GeneratedImage
     {
-        ImagePath = "underwater_world.png",
+        ImagePath = "img_4.jpeg",
         MainKeyword = "Ocean",
         Keyword = new List<string> {
             "fish, coral, submarine, bioluminescence"

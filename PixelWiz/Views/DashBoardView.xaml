@@ -2,8 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PixelWiz.Views.DashBoardView"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="DashBoardView"
              BackgroundColor="{DynamicResource BackGround}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ListToStringConverter x:Key="ListString" Separator=","/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid Margin="25,25,0,0"  RowDefinitions=".1*,.2*,.15*,.45*,.1*">
         <Grid  Margin="0,0,25,0" ColumnDefinitions="*,*">
             <VerticalStackLayout VerticalOptions="Center">
@@ -40,7 +48,7 @@
                    Text="Invita a tus amigos"
                    TextColor="{DynamicResource Subtitle}"/>
         </VerticalStackLayout>
-        <CollectionView Background="Orange"
+        <CollectionView 
                 Grid.Row="2"
                 ItemsSource="{Binding Profiles}"
                 VerticalOptions="Center">
@@ -49,19 +57,90 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid BackgroundColor="Green"
-                          ColumnDefinitions=".35*,.65*"
+                    <Grid ColumnDefinitions=".35*,.65*"
                           HeightRequest="60"
                           WidthRequest="160">
                         <RoundRectangle Grid.ColumnSpan="2"
                                         CornerRadius="45"
                                         Fill="#1F252A"/>
-                        <Border >
-                            
+                        <Border Margin="5,0,0,0"
+                                HeightRequest="50"
+                                WidthRequest="50"
+                                HorizontalOptions="Start"
+                                StrokeShape="RoundRectangle 80"
+                                StrokeThickness="0">
+                            <Image Source="{Binding ProfileImg}" HeightRequest="50"/>
                         </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="{Binding ProfileName}"
+                                   Margin="5,0,0,0"
+                                   FontFamily="NexaHeavy"
+                                   CharacterSpacing="1"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding NoPhotos, StringFormat='{0} Imagenes'}"
+                                   TextColor="#869CBD"
+                                   Margin="5,-6,0,0"
+                                   FontFamily="NexaHeavy"
+                                   FontSize="10"
+                                   CharacterSpacing="1"
+                                   VerticalTextAlignment="Center"/>
+                        </VerticalStackLayout>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <cards:CoverFlowView
+                     PositionShiftValue="145"
+                     ItemsSource="{Binding GeneratedImages}"
+                     Grid.Row="3">
+            <x:Arguments>
+                <proc:CoverFlowProcessor ScaleFactor="0.75" OpacityFactor="0.25" />
+            </x:Arguments>
+            <cards:CoverFlowView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 25"
+                            Background="White"
+                            Margin="10,0,30,0"
+                            ZIndex="9"
+                            StrokeThickness="0">
+                        <Grid RowDefinitions=".7*,.3*">
+                            <Image Source="{Binding ImagePath}"
+                                   Aspect="AspectFill"
+                                   VerticalOptions="Center"
+                                   Grid.RowSpan="2"/>
+                            <Grid Grid.Row="1">
+                                <Rectangle Fill="Black"
+                                            Opacity=".5"
+                                            StrokeThickness="0"/>
+                                <VerticalStackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                                    <Label FontFamily="NexaHeavy"
+                                    FontSize="25"
+                                    Text="{Binding MainKeyword}"
+                                    TextColor="White"/>
+                                    <Label FontFamily="NexaExtraLight"
+                                    FontSize="12"
+                                    Text="{Binding Keyword, Converter={StaticResource ListString}}"
+                                    TextTransform="Uppercase"
+                                    TextColor="White"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </cards:CoverFlowView.ItemTemplate>
+        </cards:CoverFlowView>
+        <Border Grid.Row="4"
+                Margin="0,15,0,0"
+                HorizontalOptions="End"
+                StrokeShape="RoundRectangle 55,0,0,0"
+                WidthRequest="300">
+            <Button BackgroundColor="#E8FF8E"
+                    Text="Crea una nueva Imagen"
+                    FontSize="16"
+                    TextColor="#101216"
+                    FontFamily="NexaHeavy"/>
+        </Border>
     </Grid>
 </ContentPage>
