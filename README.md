@@ -14,7 +14,7 @@ Mi segundo proyecto de practicas en desarrollo .NET MAUI Cross-Platform de .NET 
 
 ## Instalación
 
-Solo debes clonar el repositorio y desde VSC 2022 abrir la Solucción (PassXYZ.Vault.sln)
+Solo debes clonar el repositorio y desde VSC 2022 abrir la Solucción (PixelWiz.sln)
 
 <p align="center">
   <img src="https://i.ibb.co/CPp0nX5/copiar-repo.gif" alt="Lección #6" />
