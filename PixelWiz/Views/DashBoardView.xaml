@@ -92,8 +92,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <cards:CoverFlowView
-                     PositionShiftValue="40"
-                       
+                     PositionShiftValue="37"                
                      ItemsSource="{Binding GeneratedImages}"
                      Grid.Row="3">
             <x:Arguments>

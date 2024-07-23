@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PixelWiz.Views.GenerationOptionsView"
+             Title="GenerationOptionsView"
+             BackgroundColor="{DynamicResource BackGround}">
+    
+    <Grid Margin="25,25,0,0" RowDefinitions=".2*,.1*,.1*,.3*,.2*,.1*">
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label FontFamily="NexaHeavy"
+                   FontSize="30"
+                   Text="Selecciona una Opción"
+                   TextColor="White"/>
+            <Label FontFamily="Nexa-Extralight"
+                   FontSize="20"
+                   Text="Minimo de 6 opciones"
+                   TextColor="#ACB1BB"/>
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Options}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="5"
+                                   Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="50" WidthRequest="150">
+                        <RoundRectangle CornerRadius="35" Fill="#242529"/>
+                        <Label HorizontalOptions="Center"
+                               Text="{Binding .}"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
