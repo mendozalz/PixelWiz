@@ -8,7 +8,7 @@ namespace PixelWiz
         {
             InitializeComponent();
 
-            MainPage = new DashBoardView();
+            MainPage = new GenerationOptionsView();
         }
     }
 }

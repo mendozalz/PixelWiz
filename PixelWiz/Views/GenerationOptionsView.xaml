@@ -4,36 +4,70 @@
              x:Class="PixelWiz.Views.GenerationOptionsView"
              Title="GenerationOptionsView"
              BackgroundColor="{DynamicResource BackGround}">
-    
-    <Grid Margin="25,25,0,0" RowDefinitions=".2*,.1*,.1*,.3*,.2*,.1*">
-        <VerticalStackLayout VerticalOptions="Center">
-            <Label FontFamily="NexaHeavy"
-                   FontSize="30"
-                   Text="Selecciona una Opción"
-                   TextColor="White"/>
-            <Label FontFamily="Nexa-Extralight"
-                   FontSize="20"
-                   Text="Minimo de 6 opciones"
-                   TextColor="#ACB1BB"/>
-        </VerticalStackLayout>
-        <CollectionView Grid.Row="1"
-                        ItemsSource="{Binding Options}">
+
+    <Grid Margin="25,25,0,0" RowDefinitions="0.2*,0.1*,0.1*,0.3*,0.2*,0.1*">
+        <!-- Other UI elements -->
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Options}">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="5"
-                                   Orientation="Horizontal"/>
+                <LinearItemsLayout ItemSpacing="5" Orientation="Horizontal"/>
             </CollectionView.ItemsLayout>
-            
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid HeightRequest="50" WidthRequest="150">
                         <RoundRectangle CornerRadius="35" Fill="#242529"/>
                         <Label HorizontalOptions="Center"
+                               VerticalOptions="Center"
                                Text="{Binding .}"
-                               TextColor="White"
-                               VerticalOptions="Center"/>
+                               TextColor="White"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Label Grid.Row="2"
+               FontFamily="NexaHeavy"
+               FontSize="20"
+               VerticalOptions="Center"
+               Text="Elige un estilo"/>
+
+        <CollectionView Grid.Row="3" ItemsSource="{Binding Styles}" SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border StrokeShape="RoundRectangle 20" StrokeThickness="0">
+                            <Image Source="{Binding ImgUrl}"/>
+                        </Border>
+                        <Label Margin="0,0,0,10"
+                               FontFamily="NexaHeavy"
+                               FontSize="18"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="End"
+                               Text="{Binding Name}"
+                               TextColor="White">
+                            <Label.Shadow>
+                                <Shadow Brush="Black" Opacity="1" Radius="5" Offset="5,2"/>
+                            </Label.Shadow>
+                        </Label>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Border Grid.Row="4" Margin="0,15,25,0" StrokeShape="RoundRectangle 20" StrokeThickness="0" Background="#242529">
+            <Editor Margin="5" BackgroundColor="#242529" TextColor="White"/>
+        </Border>
+
+        <Button Background="#98C0FE"
+                Grid.Row="5"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Generar Imagen"
+                TextColor="Black"
+                WidthRequest="150"/>
     </Grid>
 </ContentPage>
